@@ -1,22 +1,38 @@
+from abc import ABCMeta, abstractmethod
+from argparse import _ActionsContainer
+
+
 class Equipment:
+    __metaclass__ = ABCMeta
 
+    @abstractmethod
     def __init__(self, volume, mass):
-        self.location = None
-        self.name = None
-        self.volume = volume
-        self.mass = mass
+        self._location = None
+        self._name = None
+        self._volume = volume
+        self._mass = mass
 
-    def getName(self):
-        return self.name
+    @property
+    def volume(self):
+        return self._volume
 
-    def getVolume(self):
-        return self.volume
+    @property
+    def mass(self):
+        return self._mass
 
-    def getMass(self):
-        return self.mass
+    @property
+    def location(self):
+        return self._location
 
-    def getLocation(self):
-        return self.location
+    @location.setter
+    def location(self, ship):
+        from src.Ship import Ship
 
-    def setLocation(self, location):
-        self.location = location
+        if not isinstance(ship, Ship) and ship is not None:
+            raise ValueError('Any equipment must be load in a Ship.')
+
+        self._location = ship
+
+    @property
+    def name(self):
+        return self._name
