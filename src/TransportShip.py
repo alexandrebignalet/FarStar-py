@@ -17,8 +17,8 @@ class TransportShip(Ship):
         self._volume_capacity_remaining = volume_capacity
         self._weight_capacity_remaining = weight_capacity
 
-        self._nb_instances += 1
-        self._name = "VT-" + str(self._nb_instances)
+        TransportShip._nb_instances += 1
+        self._name = "VT-" + str(TransportShip._nb_instances)
 
     def load(self, equipment):
         assert isinstance(equipment, Equipment), 'A transport ship can only load Equipment object'

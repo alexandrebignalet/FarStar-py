@@ -1,5 +1,4 @@
 from abc import ABCMeta, abstractmethod
-from argparse import _ActionsContainer
 
 
 class Equipment:

@@ -8,7 +8,7 @@ class Ship(Equipment):
 
     @abstractmethod
     def __init__(self, volume, mass):
-        Equipment.__init__(self, volume, mass)
+        super(Ship, self).__init__(volume, mass)
         self._equipments = []
 
     @property

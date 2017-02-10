@@ -37,7 +37,6 @@ class WarShipTest(unittest.TestCase):
 
             self.assertRaises(AssertionError, self.war_ship.load(c))
 
-
     def test_load_equipments_list_must_contain_weapon_arg_after_loading(self):
         p = Phaser(1, 1)
         p2 = Phaser(1, 1)
@@ -71,3 +70,10 @@ class WarShipTest(unittest.TestCase):
 
         self.assertEqual(self.war_ship, p.location)
 
+    def test_weapon_must_not_be_equipped_after_unloading(self):
+        p = Phaser(1,1)
+        self.war_ship.load(p)
+        self.assertEqual(p.equipped, True)
+
+        self.war_ship.unload(p)
+        self.assertEqual(p.equipped, False)

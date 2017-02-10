@@ -7,10 +7,10 @@ class Blaster(Weapon):
     _nb_instances = 0
 
     def __init__(self, volume, mass, gaz_level):
-        Weapon.__init__(self, volume, mass)
+        super(Blaster, self).__init__(volume, mass)
         self._gaz_level = gaz_level
-        self._nb_instances += 1
-        self._name = "B-" + str(self._nb_instances)
+        Blaster._nb_instances += 1
+        self._name = "B-" + str(Blaster._nb_instances)
 
     @property
     def gaz_level(self):

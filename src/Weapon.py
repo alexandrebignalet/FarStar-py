@@ -8,7 +8,7 @@ class Weapon(Equipment):
 
     @abstractmethod
     def __init__(self, volume, mass):
-        Equipment.__init__(self, volume, mass)
+        super(Weapon, self).__init__(volume, mass)
         self._equipped = False
 
     @property

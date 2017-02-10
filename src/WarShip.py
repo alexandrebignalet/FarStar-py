@@ -3,20 +3,28 @@ from src.Ship import Ship
 
 
 class WarShip(Ship):
+    _nb_instances = 0
 
     def __init__(self, volume, mass, max_nb_weapons):
-        Ship.__init__(self, volume, mass)
+        super(WarShip, self).__init__(volume, mass)
         self._max_nb_weapons = max_nb_weapons
+        WarShip._nb_instances += 1
+        self._name = "VC-" + str(self._nb_instances)
 
     @property
     def max_nb_weapons(self):
         return self._max_nb_weapons
 
-    def load(self, equipment):
-        assert isinstance(equipment, Weapon), 'WarShip can only load Weapon object.'
-        assert equipment.location is None, 'Weapon already load elsewhere.'
+    def load(self, weapon):
+        assert isinstance(weapon, Weapon), 'WarShip can only load Weapon object.'
+        assert weapon.location is None, 'Weapon already load elsewhere.'
         assert len(self.equipments) + 1 <= self._max_nb_weapons, 'Impossible to add more weapon: ' \
-                                                                'maximum number of weapons reached for this WarShip'
+                                                                 'maximum number of weapons reached for this WarShip'
 
-        self.equipments.append(equipment)
-        equipment.location = self
+        self.equipments.append(weapon)
+        weapon.equipped = True
+        weapon.location = self
+
+    def unload(self, weapon):
+        super(WarShip, self).unload(weapon)
+        weapon.equipped = False
