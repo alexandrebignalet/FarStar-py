@@ -15,3 +15,8 @@ class BlasterTest(unittest.TestCase):
         self.assertEqual(self.b.gaz_level, 54)
         self.b.recharge()
         self.assertEqual(self.b.gaz_level, 100)
+
+    def test_blaster_gaz_level_must_be_a_percent(self):
+        with self.assertRaises(AssertionError):
+            self.assertRaises(Blaster(1, 1, 1000))
+            self.assertRaises(Blaster(1, 1, -43))

@@ -7,6 +7,7 @@ class Blaster(Weapon):
     _nb_instances = 0
 
     def __init__(self, volume, mass, gaz_level):
+        assert 100 >= gaz_level >= 0
         super(Blaster, self).__init__(volume, mass)
         self._gaz_level = gaz_level
         Blaster._nb_instances += 1
