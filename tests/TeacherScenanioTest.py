@@ -15,8 +15,8 @@ class TeacherScenarioTest(unittest.TestCase):
         self.phasers = []
 
         self.vc1 = LightWeightWarShip(10, 50, 2)
-        print 'Soit un vaisseau de combat leger' + self.vc1.name + '(volume=10, masse=50, 2 armes max)'
-        print 'On equipe' + self.vc1.name + ' avec deux phasers (volume=1, masse=1)'
+        print 'Soit un vaisseau de combat leger ' + self.vc1.name + '(volume=10, masse=50, 2 armes max)'
+        print 'On equipe ' + self.vc1.name + ' avec deux phasers (volume=1, masse=1)'
 
         p = Phaser(1, 1)
         p1 = Phaser(1, 1)
@@ -100,17 +100,18 @@ class TeacherScenarioTest(unittest.TestCase):
         self.vt2 = None
         self.phasers = None
 
-    def test_total_mass_total_volume_of_mr_63(self):
+    def test_total_mass_total_volume_of_mr_63_and_where_are_the_phasers(self):
         print 'On veut savoir quelle est la masse total de ' + self.mr63.name + \
               ' (un bon 713) et quel est le volume disponible dans MR-63 (il en reste pour 34)'
 
         print 'Masse de ' + self.mr63.name + ': ' + str(self.mr63.mass)
         print 'Volume disponible de ' + self.mr63.name + ': ' + str(self.mr63.volume_capacity_remaining)
 
-    def test_where_are_the_phasers(self):
         print 'On veut savoir ou est chacun des phasers (deux sont dans ' + self.mr63.name + \
               ', un dans la soute de ' + self.vt2.name + ', le dernier est equipe par ' + \
               self.vc1.name + ')'
 
         for phaser in self.phasers:
             self.resolveLocation(phaser)
+
+
