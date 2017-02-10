@@ -27,8 +27,7 @@ class Equipment:
     def location(self, ship):
         from src.Ship import Ship
 
-        if not isinstance(ship, Ship) and ship is not None:
-            raise ValueError('Any equipment must be load in a Ship.')
+        assert isinstance(ship, Ship) or ship is None, 'Any equipment must be load in a Ship.'
 
         self._location = ship
 

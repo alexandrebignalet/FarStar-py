@@ -36,14 +36,14 @@ class EquipmentTest(unittest.TestCase):
         self.assertIsNone(self.transport_ship.location)
 
     def test_equipment_location_can_only_be_a_ship_object(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertionError):
 
             c = Container(1, 1)
             ts = TransportShip(10, 10, 9, 20)
 
             try:
                 c.location = 10
-            except ValueError as e:
+            except AssertionError as e:
                 self.assertEqual(e.args, ('Any equipment must be load in a Ship.',))
                 raise
 
