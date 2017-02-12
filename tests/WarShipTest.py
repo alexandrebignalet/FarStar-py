@@ -60,6 +60,7 @@ class WarShipTest(unittest.TestCase):
             t.load(p)
 
             self.assertRaises(AssertionError, self.war_ship.load(p))
+            self.assertRaises(AssertionError, self.war_ship.load(t))
 
     def test_equipment_location_must_be_set_to_the_current_loader_after_loading(self):
         p = Phaser(1,1)

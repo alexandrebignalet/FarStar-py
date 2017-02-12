@@ -17,13 +17,12 @@ class WarShip(Ship):
 
     def load(self, weapon):
         assert isinstance(weapon, Weapon), 'WarShip can only load Weapon object.'
-        assert weapon.location is None, 'Weapon already load elsewhere.'
         assert len(self.equipments) + 1 <= self._max_nb_weapons, 'Impossible to add more weapon: ' \
                                                                  'maximum number of weapons reached for this WarShip'
 
-        self.equipments.append(weapon)
+        Ship.load(self, weapon)
+
         weapon.equipped = True
-        weapon.location = self
 
     def unload(self, weapon):
         super(WarShip, self).unload(weapon)

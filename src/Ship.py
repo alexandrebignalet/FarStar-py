@@ -24,8 +24,10 @@ class Ship(Equipment):
 
         return total
 
-    @abstractmethod
-    def load(self, equipment):pass
+    def load(self, equipment):
+        assert equipment.location is None, 'Equipment already loaded elsewhere.'
+        self.equipments.append(equipment)
+        equipment.location = self;
 
     def unload(self, equipment):
         try:

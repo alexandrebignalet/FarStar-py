@@ -32,10 +32,10 @@ class TransportShip(Ship):
         assert self._weight_capacity_remaining >= equipment.mass, 'There is not enough weight capacity remaining in ' \
                                                                  'the transport ship to load this equipment'
 
-        self._equipments.append(equipment)
+        Ship.load(self, equipment)
+
         self._volume_capacity_remaining -= equipment.volume
         self._weight_capacity_remaining -= equipment.mass
-        equipment.location = self
 
     def unload(self, equipment):
         super(TransportShip, self).unload(equipment)
