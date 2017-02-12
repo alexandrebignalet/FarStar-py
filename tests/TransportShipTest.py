@@ -18,7 +18,7 @@ class TransportShipTest(unittest.TestCase):
         self.assertEqual(self.transport_ship.weight_capacity, 200)
 
     def test_location_setter_overriding(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertionError):
             w = Blaster(1,1,3)
             try:
                 self.transport_ship.location = w

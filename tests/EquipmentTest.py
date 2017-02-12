@@ -1,10 +1,9 @@
 import unittest
 
-from src.WarShip import WarShip
 from src.Container import Container
-from src.Equipment import Equipment
 from src.Phaser import Phaser
 from src.TransportShip import TransportShip
+from src.WarShip import WarShip
 
 
 class EquipmentTest(unittest.TestCase):
@@ -19,6 +18,7 @@ class EquipmentTest(unittest.TestCase):
         self.container = None
 
     def test_equipment_constructor(self):
+        ts = TransportShip(10, 10, 9, 20)
 
         self.assertEqual(self.phaser.name, "P-1")
         self.assertEqual(self.phaser.volume, 100)
@@ -41,11 +41,7 @@ class EquipmentTest(unittest.TestCase):
             c = Container(1, 1)
             ts = TransportShip(10, 10, 9, 20)
 
-            try:
-                c.location = 10
-            except AssertionError as e:
-                self.assertEqual(e.args, ('Any equipment must be load in a Ship.',))
-                raise
+            c.location = 10
 
             c.location = ts
             self.assertEqual(ts, c.location)

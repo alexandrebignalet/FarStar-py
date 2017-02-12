@@ -1,5 +1,4 @@
 from abc import ABCMeta, abstractmethod
-
 from src.Equipment import Equipment
 
 
@@ -26,8 +25,9 @@ class Ship(Equipment):
 
     def load(self, equipment):
         assert equipment.location is None, 'Equipment already loaded elsewhere.'
+
         self.equipments.append(equipment)
-        equipment.location = self;
+        equipment.location = self
 
     def unload(self, equipment):
         try:
@@ -39,9 +39,10 @@ class Ship(Equipment):
     @Equipment.location.setter
     def location(self, ship):
         from src.TransportShip import TransportShip
-
-        if not isinstance(ship, TransportShip) and ship is not None:
-            raise ValueError('A Ship can only be located in a TransportShip')
+        from src.HybridShip import HybridShip
+        print "ZANGO LE DOZO"
+        assert isinstance(ship, TransportShip) or isinstance(ship, HybridShip) \
+            , 'A Ship can only be located in a TransportShip or in an HybridShip'
 
         self._location = ship
 

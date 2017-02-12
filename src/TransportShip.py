@@ -22,10 +22,6 @@ class TransportShip(Ship):
 
     def load(self, equipment):
         assert isinstance(equipment, Equipment), 'A transport ship can only load Equipment object'
-
-        assert equipment.location is None, 'Cannot load this equipment in transport ship ' \
-                                               'because it is already loaded elsewhere'
-
         assert self._volume_capacity_remaining >= equipment.volume, 'There is not enough volume space ' \
                                                                    'in the transport ship to load this equipment'
 
@@ -41,7 +37,6 @@ class TransportShip(Ship):
         super(TransportShip, self).unload(equipment)
         self._volume_capacity_remaining += equipment.volume
         self._weight_capacity_remaining += equipment.mass
-
 
     @property
     def volume_capacity(self):
