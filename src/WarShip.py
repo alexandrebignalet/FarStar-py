@@ -9,7 +9,7 @@ class WarShip(Ship):
         super(WarShip, self).__init__(volume, mass)
         self._max_nb_weapons = max_nb_weapons
         WarShip._nb_instances += 1
-        self._name = "VC-" + str(self._nb_instances)
+        self.name = "VC-" + str(self._nb_instances)
 
     @property
     def max_nb_weapons(self):

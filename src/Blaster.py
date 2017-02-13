@@ -13,7 +13,7 @@ class Blaster(Weapon):
 
         self._gaz_level = gaz_level
         Blaster._nb_instances += 1
-        self._name = "B-" + str(Blaster._nb_instances)
+        self.name = "B-" + str(Blaster._nb_instances)
 
     @property
     def gaz_level(self):
