@@ -40,8 +40,8 @@ class Ship(Equipment):
     def location(self, ship):
         from src.TransportShip import TransportShip
         from src.HybridShip import HybridShip
-        print "ZANGO LE DOZO"
-        assert isinstance(ship, TransportShip) or isinstance(ship, HybridShip) \
+
+        assert isinstance(ship, TransportShip) or isinstance(ship, HybridShip) or ship is None \
             , 'A Ship can only be located in a TransportShip or in an HybridShip'
 
         self._location = ship
